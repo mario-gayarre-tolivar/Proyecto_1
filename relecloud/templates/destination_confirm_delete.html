@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ReleCloud - Delete {{ object.name }}
+{% endblock title %}
+
+{% block content %}
+<h1>Delete {{ object.name }}</h1>
+<p>Are you sure you want to delete the destination "<strong>{{ object.name }}</strong>"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a href="{% url 'destination_detail' object.id %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock content %}
